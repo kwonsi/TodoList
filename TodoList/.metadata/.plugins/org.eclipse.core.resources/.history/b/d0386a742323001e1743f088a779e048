@@ -1,0 +1,34 @@
+package edu.kh.comm.main.controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class MainController {
+
+	/*index.jsp(http://localhost:8080/comm/main) 에서 요청보냄
+	 * ->@RequestMapping에 /main 만 작성
+	 */
+	@RequestMapping("/main")
+	public String mainForward() {
+
+		return "common/main";
+		//-> WEB-INF / views / common / main.jsp
+
+		//controller -> return 구문 받아 dispatcher
+		//-> ViewReserve -> servlet-context.xml (prefix, suffix)로 인해
+		//common/main만 적어줘도 된다
+	}
+
+	
+	@PostMapping("/todoInsert")
+	@ResponseBody
+	public int todoInsert() {
+		int result = 0;
+		
+		return result;
+	}
+	
+	
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+<!-- Mybatis 관련 설정 작성 -->
+<!-- *****1. settings, 2. typeAliases, 3. mappers 순서 중요!!***** -->
+
+<!-- SqlSessionTemplate 관련 설정 -->
+	<settings>
+	
+		<!-- insert/update 진행시 null 포함되있는 경우
+			Mybatis는 에러를 발생 시켜버린다
+			해당구문이 작성되면 지정된 value로 값을 insert/update 시켜준다
+			null값이 있으면 NULL(무조건 대문자로 작성)을 insert/update 해라-->
+	
+		<!-- JDBC에서 Null일 때 어떻게 처리할지 셋팅 -->
+		<setting name="jdbcTypeForNull" value="NULL"></setting>
+	</settings>
+	
+	<!-- 별칭 작성 부분 -->
+	<typeAliases>
+		<typeAlias type="edu.kh.comm.member.model.vo.Member" alias="member"></typeAlias>
+	</typeAliases>
+	
+	<!-- SQL이 작성되는 mapper파일 위치를 등록 -->
+	<mappers>
+		<!-- resource="mapper파일 경로" 
+			-> 경로 작성 기준: src/main/resources 폴더-->
+		<mapper resource="/mappers/member-mapper.xml"/>
+		<mapper resource="/mappers/myPage-mapper.xml"/>
+	
+	</mappers>
+
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+
+	<!-- servlet-context.xml 파일
+		-DispatcherServlet의 설정파일
+		-모든 요청을 받아서  Controller을 찾고, 응답에 따라 View를 찾아서 연결
+		
+		*HandMapping :요청받은 주소에 따라 해당 주소를 처리할 컨트롤러를 연결하는 역할
+		->기존에 XML방식을 사용하다가
+		@RequsetMapping/ @GetMapping/ @PostMapping으로 대체되었다 -->
+	
+	<!-- View Resolver:
+		-Controller에서 반환된 문자열 앞/뒤에 prefix/suffix를 추가해
+		만들어진 경로의 jsp로 요청을 위임한다(forward)
+		
+		ex) member/signUP 
+		-> /WEB-INF/views/member/signUP.jsp
+		
+		단, 반환된 문자열의 시작이 redirect: 구분이면 재요청(redirect)을 진행한다 -->
+	
+	<!--  -->
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	
+	<context:component-scan base-package="edu.kh.comm" />
+<!--  ->지정된 패키지 이하에 존재하는
+	  @Component, @Controller, @Service, @Repository를 찾아서 bean으로 생성 -->
+	
+	
+
+	
+		<!-- 	<tx:annotation-driven proxy-target-class="true"/> -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- @Scheduled어노테이션 인식을 위한 테그 -->
+	<task:annotation-driven/>
+	
+	
+</beans:beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
