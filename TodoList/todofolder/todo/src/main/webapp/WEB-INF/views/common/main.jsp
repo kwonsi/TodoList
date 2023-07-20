@@ -20,8 +20,29 @@
 <body>
     <main>
         <h1>ToDoList</h1>
-        <section class="content-2">
+       
+        <div class="main2">
+
+
+
+            <div class="todo">
+                <form onsubmit="event.preventDefault(); todoplus();">
+                    <input class="inputtext" type="text" placeholder="나의 할 일 입력" name="mywork">
+                    <button id="inputbtn" type="button" class="fa-regular fa-square-plus" onclick="todoplus()"></button>
+                </form>
+                
+                    <div id="form2">
+                
+                    </div>
             
+                <button class="reset" type="button">전체삭제</button>
+        
+            
+            </div>
+
+
+
+
             <%-- if - else --%>
             <c:choose>  
                 <%-- choose 내부에는 jsp 주석만 사용 --%>
@@ -31,7 +52,7 @@
                 
                        <!-- 절대경로 : /community/member/login -->
                         <!-- 상대 경로 (index.jsp) 기준-->
-                    <form action="member/login" method="POST" name="login-form" onsubmit="return loginValidate()">
+                    <form class="loginSize" action="member/login" method="POST" name="login-form" onsubmit="return loginValidate()">
                        
                         <!-- 아이디(이메일)/비밀번호/로그인버튼 영역 -->
                         <fieldset id="id-pw-area">
@@ -114,36 +135,13 @@
                 </c:otherwise>
             </c:choose>
             
-        </section>
-
-
-
-        <div class="todo">
-            <form onsubmit="event.preventDefault(); todoplus();">
-                <input class="inputtext" type="text" placeholder="나의 할 일 입력" name="mywork">
-                <button id="inputbtn" type="button" class="fa-regular fa-square-plus" onclick="todoplus()"></button>
-            </form>
-            
-                <div id="form2">
-                <!-- <input type="checkbox" name="check" class="checkbox"> -->
-                <!-- <button type="button" id="checkbtn" style='background-Color: transparent; border: none' class='fa-regular fa-circle-check'></button> -->
-                <!-- <button type='button' id="minreset" style='background-color: transparent; border: none;' class="fa-solid fa-trash-can"></button>   -->
-            
-                <!-- <c:choose>
-                    <c:when test="${!empty todoList && !empty loginMember}">
-                        <c:forEach var="todoList" items="${todoList}">
-                            ${todoList.inputtext}
-                        </c:forEach>
-                    </c:when>
-                </c:choose> -->
-
-                </div>
-           
-            <button class="reset" type="button">전체삭제</button>
-    
-           
-        </div>
        
+           
+       
+
+
+        </div>
+           
     
       
            
