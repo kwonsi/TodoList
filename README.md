@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Camp&nbsp;With&nbsp;Us&fontSize=90" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=To&nbsp;Do&nbsp;List&fontSize=90" />
 
 ### 프로젝트 설명
 ToDoList
